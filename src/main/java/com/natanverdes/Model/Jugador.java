@@ -12,51 +12,57 @@ public class Jugador {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+//    Definimos una relación ManyToOne, guardando el equipo en la entidad jugador
+    @ManyToOne
+    private Equipo equipo;
+
     private String nombre;
 
     private Date fechaNacimiento;
     
-    private int numeroCanastasTotales;
+    private int canastas;
 
-    private int numeroAsistenciasTotales;
+    private int asistencias;
 
-    private int numeroRebotesTotales;
+    private int rebotes;
 
-    private String posicionEnElCampoPorDefecto;
+    private String posicion;
 
 
 //     -----------------------------------------------------------
 //     -------------------- CONSTRUCTORES ------------------------
 //     -----------------------------------------------------------
     public Jugador(){}
-    public Jugador(String nombre, Date fechaNacimiento, int numeroCanastasTotales, int numeroAsistenciasTotales, int numeroRebotesTotales, String posicionEnElCampoPorDefecto) {
+    public Jugador(String nombre, Date fechaNacimiento, int canastas, int asistencias,
+                   int rebotes, String posicion, Equipo equipo) {
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
-        this.numeroCanastasTotales = numeroCanastasTotales;
-        this.numeroAsistenciasTotales = numeroAsistenciasTotales;
-        this.numeroRebotesTotales = numeroRebotesTotales;
-        this.posicionEnElCampoPorDefecto = posicionEnElCampoPorDefecto;
+        this.canastas = canastas;
+        this.asistencias = asistencias;
+        this.rebotes = rebotes;
+        this.posicion = posicion;
+        this.equipo = equipo;
     }
 
 //     -------------------------------------------------------
 //     -------------------- TO SRING -------------------------
 //     -------------------------------------------------------
 
-
     @Override
     public String toString() {
         return "Jugador{" +
                 "id=" + id +
+                ", equipo=" + equipo +
                 ", nombre='" + nombre + '\'' +
                 ", fechaNacimiento=" + fechaNacimiento +
-                ", numeroCanastasTotales=" + numeroCanastasTotales +
-                ", numeroAsistenciasTotales=" + numeroAsistenciasTotales +
-                ", numeroRebotesTotales=" + numeroRebotesTotales +
-                ", posicionEnElCampoPorDefecto='" + posicionEnElCampoPorDefecto + '\'' +
+                ", canastas=" + canastas +
+                ", asistencias=" + asistencias +
+                ", rebotes=" + rebotes +
+                ", posicion='" + posicion + '\'' +
                 '}';
     }
 
-//     -------------------------------------------------------------
+    //     -------------------------------------------------------------
 //     -------------------- GETTERS & SETTERS ----------------------
 //     -------------------------------------------------------------
     public Long getId() {
@@ -65,6 +71,14 @@ public class Jugador {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
     }
 
     public String getNombre() {
@@ -83,35 +97,35 @@ public class Jugador {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public int getNumeroCanastasTotales() {
-        return numeroCanastasTotales;
+    public int getCanastas() {
+        return canastas;
     }
 
-    public void setNumeroCanastasTotales(int numeroCanastasTotales) {
-        this.numeroCanastasTotales = numeroCanastasTotales;
+    public void setCanastas(int canastas) {
+        this.canastas = canastas;
     }
 
-    public int getNumeroAsistenciasTotales() {
-        return numeroAsistenciasTotales;
+    public int getAsistencias() {
+        return asistencias;
     }
 
-    public void setNumeroAsistenciasTotales(int numeroAsistenciasTotales) {
-        this.numeroAsistenciasTotales = numeroAsistenciasTotales;
+    public void setAsistencias(int asistencias) {
+        this.asistencias = asistencias;
     }
 
-    public int getNumeroRebotesTotales() {
-        return numeroRebotesTotales;
+    public int getRebotes() {
+        return rebotes;
     }
 
-    public void setNumeroRebotesTotales(int numeroRebotesTotales) {
-        this.numeroRebotesTotales = numeroRebotesTotales;
+    public void setRebotes(int rebotes) {
+        this.rebotes = rebotes;
     }
 
-    public String getPosicionEnElCampoPorDefecto() {
-        return posicionEnElCampoPorDefecto;
+    public String getPosicion() {
+        return posicion;
     }
 
-    public void setPosicionEnElCampoPorDefecto(String posicionEnElCampoPorDefecto) {
-        this.posicionEnElCampoPorDefecto = posicionEnElCampoPorDefecto;
+    public void setPosicion(String posicion) {
+        this.posicion = posicion;
     }
 }
