@@ -1,5 +1,7 @@
 package com.natanverdes.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -20,12 +22,15 @@ public class Equipo {
 
     private Date fechaCreacion;
 
-
-//    Definimos una relación OneToMany, que es mappedBy (guardada) en la variable "equipo" de Jugador. Esta es una relación débil.
+//    @JsonIgnore: Utilizaremos la anotación JsonIgnore para que las peticiones REST no devuelvan estos datos
+//    @OneToMany: Definimos una relación OneToMany, que es mappedBy (guardada) en la variable "equipo" de Jugador.
+//    Esta es una relación débil.
+    @JsonIgnore
     @OneToMany(mappedBy = "equipo")
     private Set<Jugador> jugadores = new HashSet<>();
 
 //    Definimos una relación ManyToMany con las Temporadas. Esta es la relación fuerte.
+    @JsonIgnore
     @ManyToMany
     private Set<Temporada> temporadasJugadas = new HashSet<>();
 

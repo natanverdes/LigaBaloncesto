@@ -1,5 +1,7 @@
 package com.natanverdes.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -12,7 +14,10 @@ public class Jugador {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-//    Definimos una relación ManyToOne, guardando el equipo en la entidad jugador
+//    @JsonIgnore: Lo utilizamos  para que las peticiones REST no respondan dando esta variable.
+
+//    @ManyToOne: Lo usamos para definir una relación ManyToOne, guardando el equipo en la entidad jugador
+    @JsonIgnore
     @ManyToOne
     private Equipo equipo;
 
@@ -52,13 +57,13 @@ public class Jugador {
     public String toString() {
         return "Jugador{" +
                 "id=" + id +
-                ", equipo=" + equipo +
                 ", nombre='" + nombre + '\'' +
                 ", fechaNacimiento=" + fechaNacimiento +
                 ", canastas=" + canastas +
                 ", asistencias=" + asistencias +
                 ", rebotes=" + rebotes +
                 ", posicion='" + posicion + '\'' +
+                ", equipo=" + equipo +
                 '}';
     }
 
