@@ -1,0 +1,68 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myPartidoLabel" translate="ligaBaloncestoApp.partido.home.createOrEditLabel">Create or edit a Partido</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="partido.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ligaBaloncestoApp.partido.fecha" for="field_fecha">Fecha</label>
+            <input type="date" class="form-control" name="fecha" id="field_fecha"
+                    ng-model="partido.fecha"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ligaBaloncestoApp.partido.canastasEquipoLocal" for="field_canastasEquipoLocal">CanastasEquipoLocal</label>
+            <input type="number" class="form-control" name="canastasEquipoLocal" id="field_canastasEquipoLocal"
+                    ng-model="partido.canastasEquipoLocal"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="ligaBaloncestoApp.partido.canastasEquipoVisitante" for="field_canastasEquipoVisitante">CanastasEquipoVisitante</label>
+            <input type="number" class="form-control" name="canastasEquipoVisitante" id="field_canastasEquipoVisitante"
+                    ng-model="partido.canastasEquipoVisitante"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="ligaBaloncestoApp.partido.equipoLocal" for="field_equipoLocal">equipoLocal</label>
+            <select class="form-control" id="field_equipoLocal" name="equipoLocal" ng-model="partido.equipoLocal" ng-options="equipo as equipo.id for equipo in equipos track by equipo.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="ligaBaloncestoApp.partido.equipoVisitante" for="field_equipoVisitante">equipoVisitante</label>
+            <select class="form-control" id="field_equipoVisitante" name="equipoVisitante" ng-model="partido.equipoVisitante" ng-options="equipo as equipo.id for equipo in equipos track by equipo.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="ligaBaloncestoApp.partido.temporadas" for="field_temporadas">temporadas</label>
+            <select class="form-control" id="field_temporadas" name="temporadas" ng-model="partido.temporadas" ng-options="temporada as temporada.id for temporada in temporadas track by temporada.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="ligaBaloncestoApp.partido.arbitro" for="field_arbitro">arbitro</label>
+            <select class="form-control" id="field_arbitro" name="arbitro" ng-model="partido.arbitro" ng-options="arbitro as arbitro.id for arbitro in arbitros track by arbitro.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

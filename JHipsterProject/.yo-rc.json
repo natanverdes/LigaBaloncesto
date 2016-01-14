@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "baseName": "LigaBaloncesto",
+    "packageName": "com.natanverdes.ligabaloncesto",
+    "packageFolder": "com/natanverdes/ligabaloncesto",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "enableTranslation": true,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "5af52a55f66155066d68fe250ec4ea320aa6a6d6",
+    "testFrameworks": [
+      "gatling"
+    ]
+  }
+}

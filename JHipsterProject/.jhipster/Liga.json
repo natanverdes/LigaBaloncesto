@@ -1,0 +1,29 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "temporadasJugando",
+            "otherEntityName": "temporada",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "liga"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "arbitros",
+            "otherEntityName": "arbitro",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "liga"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20151202162918",
+    "dto": "no",
+    "pagination": "pagination"
+}

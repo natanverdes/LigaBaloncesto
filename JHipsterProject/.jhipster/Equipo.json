@@ -1,0 +1,82 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "estadio",
+            "otherEntityName": "estadio",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "equipo"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "jugadores",
+            "otherEntityName": "jugador",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "equipo"
+        },
+        {
+            "relationshipId": 3,
+            "relationshipName": "entrenador",
+            "otherEntityName": "entrenador",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "equipo"
+        },
+        {
+            "relationshipId": 4,
+            "relationshipName": "socios",
+            "otherEntityName": "socio",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "equiposEsSocio"
+        },
+        {
+            "relationshipId": 5,
+            "relationshipName": "temporadas",
+            "otherEntityName": "temporada",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipId": 6,
+            "relationshipName": "partidosJugadosComoLocal",
+            "otherEntityName": "partido",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "equipoLocal"
+        },
+        {
+            "relationshipId": 7,
+            "relationshipName": "partidosJugadosComoVisitante",
+            "otherEntityName": "partido",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "equipoVisitante"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "localidad",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "fechaCreacion",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20151202160811",
+    "dto": "no",
+    "pagination": "pagination"
+}

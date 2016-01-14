@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+
+    <include file="classpath:config/liquibase/changelog/20151201202536_added_entity_Entrenador.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20151201200438_added_entity_Estadio.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20151202162918_added_entity_Liga.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20151202162704_added_entity_Temporada.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20151202163502_added_entity_Arbitro.xml" relativeToChangelogFile="false"/>
+
+    <include file="classpath:config/liquibase/changelog/20151202160811_added_entity_Equipo.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20151201195637_added_entity_Jugador.xml" relativeToChangelogFile="false"/>
+
+    <include file="classpath:config/liquibase/changelog/20151202161712_added_entity_Partido.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20151202161142_added_entity_JugadorJuegaPartido.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20151202162056_added_entity_Socio.xml" relativeToChangelogFile="false"/>
+
+
+
+    <!-- JHipster will add liquibase changelogs here -->
+</databaseChangeLog>
+
+
+    <!--include file="classpath:config/liquibase/changelog/20151201195637_added_entity_Jugador.xml" relativeToChangelogFile="false"/>
+        <include file="classpath:config/liquibase/changelog/20151201200438_added_entity_Estadio.xml" relativeToChangelogFile="false"/>
+        <include file="classpath:config/liquibase/changelog/20151201202536_added_entity_Entrenador.xml" relativeToChangelogFile="false"/>
+        <include file="classpath:config/liquibase/changelog/20151202160811_added_entity_Equipo.xml" relativeToChangelogFile="false"/>
+        <include file="classpath:config/liquibase/changelog/20151202161142_added_entity_JugadorJuegaPartido.xml" relativeToChangelogFile="false"/>
+        <include file="classpath:config/liquibase/changelog/20151202161712_added_entity_Partido.xml" relativeToChangelogFile="false"/>
+        <include file="classpath:config/liquibase/changelog/20151202162056_added_entity_Socio.xml" relativeToChangelogFile="false"/>
+        <include file="classpath:config/liquibase/changelog/20151202162704_added_entity_Temporada.xml" relativeToChangelogFile="false"/>
+        <include file="classpath:config/liquibase/changelog/20151202162918_added_entity_Liga.xml" relativeToChangelogFile="false"/>
+        <include file="classpath:config/liquibase/changelog/20151202163502_added_entity_Arbitro.xml" relativeToChangelogFile="false"/-->

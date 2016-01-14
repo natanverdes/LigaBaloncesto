@@ -1,0 +1,27 @@
+{
+    "ligaBaloncestoApp": {
+        "jugadorJuegaPartido" : {
+            "home": {
+                "title": "JugadorJuegaPartidos",
+                "createLabel": "Créer un nouveau JugadorJuegaPartido",
+                "createOrEditLabel": "Créer ou éditer un JugadorJuegaPartido"
+            },
+            "created": "Un nouveau JugadorJuegaPartido a été créé avec l'identifiant {{ param }}",
+            "updated": "Le JugadorJuegaPartido avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le JugadorJuegaPartido avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le JugadorJuegaPartido {{ id }} ?"
+            },
+            "detail": {
+                "title": "JugadorJuegaPartido"
+            },
+            "canastas": "Canastas",
+            "asistencias": "Asistencias",
+            "rebotes": "Rebotes",
+            "faltas": "Faltas",
+            "jugador": "Jugador",
+            "partido": "Partido"
+        }
+    }
+}
+

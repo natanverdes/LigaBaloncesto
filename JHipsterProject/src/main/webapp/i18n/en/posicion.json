@@ -1,0 +1,12 @@
+{
+    "ligaBaloncestoApp": {
+        "Posicion" : {
+            "null": "",
+            "base": "base",
+            "escolta": "escolta",
+            "alero": "alero",
+            "alapivot": "alapivot",
+            "pivot": "pivot"
+        }
+    }
+}
