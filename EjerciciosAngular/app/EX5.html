@@ -1,0 +1,36 @@
+<!--
+http://www.w3schools.com/angular/tryit.asp?filename=try_ng_filters_orderby
+Inicializa un array que almacene diversos jugadores de baloncesto en un controlador. Posteriormente, utiliza la
+directiva ng-repeat para mostrar todos los jugadores. Utiliza también un filtro, para mostrar los jugadores ordenando
+mediante varios atributos (por ejemplo, nombre, total canastas, total asistencias, país, etc.). La idea es que puedes
+experimentar con diversos atributos para comprobar que la ordenación funciona correctamente con todos los tipos
+de datos. Justifica en qué casos es preferible realizar la ordenación en el cliente mediante AngularJS, y en qué casos
+es preferible realizar la ordenación en el servidor mediante Spring. Explica ventajas e inconvenientes de cada enfoque.
+-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+<div ng-controller="ex4">
+    <h1>EX5</h1>
+    <div ng-repeat="jugador in jugadores | orderBy:['canastas',  'asistencias']">
+        <p>{{ jugador.nombre }}</p>
+        <p>{{ jugador.canastas }}</p>
+        <p>{{ jugador.asistencias }}</p>
+        <br>
+    </div>
+</div>
+
+</body>
+</html>
+<!--
+La ordenación por el cliente siempre será mucho mas rápida que la ordenación mediante el uso de backend, pero no siempre
+podrá realizarse: a veces necesitaremos hacer búsquedas sobre centenares de registros. La búsqueda mediante AngularJS
+la podremos utilizar en caso de que todos los datos a filtrar los tengamos descargados de antemano.
+-->

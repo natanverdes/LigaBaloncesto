@@ -1,0 +1,34 @@
+<!--
+http://www.w3schools.com/angular/tryit.asp?filename=try_ng_repeat_object
+Inicializa un array para almacenar diversos jugadores de baloncesto. Posteriormente, utiliza la directiva ng-repeat
+para mostrar todos los jugadores de baloncesto con sus diversos atributos. Explica cómo funciona la gestión de
+scopes con la directiva ng-repeat.
+-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+<div ng-controller="ex4">
+    <h1>EX4</h1>
+    <div ng-repeat="jugador in jugadores">
+        <p>{{ jugador.nombre }}</p>
+        <p>{{ jugador.canastas }}</p>
+        <p>{{ jugador.asistencias }}</p>
+        <br>
+    </div>
+
+
+</div>
+
+</body>
+</html>
+<!--
+La directiva ng-repeat permite iterar sobre un array y poder tratar con los datos que contiene. En este caso, cogemos
+el array "jugadores" que contiene objetos "jugador", e imprimimos las propiedades de éste.
+-->

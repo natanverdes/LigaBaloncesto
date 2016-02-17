@@ -1,0 +1,31 @@
+<!--
+http://www.w3schools.com/angular/tryit.asp?filename=try_ng_intro_bind
+
+Desarrolla una página web equivalente que permita introducir los campos de un jugador de baloncesto
+(te puedes basar en los atributos que hemos utilizado con Spring), y muestre en tiempo real el valor introducido.
+Explica, de manera muy resumida, el mecanismo que utiliza AngularJS para sincronizar los elementos de la interfaz de
+usuario HTML (explica la directiva específica que se utiliza en este ejemplo).
+-->
+
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <h1>EX1</h1>
+    <p>Nombre: <input type="text" ng-model="nombre"></p>
+    <p>Canastas Totales: <input type="number" ng-model="canastas"></p>
+    <p>Asistencias Totales: <input type="number" ng-model="asistencias"></p>
+    <p>{{nombre}}</p>
+    <p>{{canastas}}</p>
+    <p>{{asistencias}}</p>
+</body>
+</html>
+<!--
+Angular utiliza la directiva ng-model para incorporar de manera inmediata en su $scope los datos introducidos
+-->

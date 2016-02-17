@@ -1,0 +1,32 @@
+<!--
+http://www.w3schools.com/angular/tryit.asp?filename=try_ng_intro_controller
+Extiende el ejercicio número 1, de manera que se incluya un controlador que gestione los datos de la vista.
+El controlador ha de proporcionar unos datos iniciales por defecto que se mostrarán en la vista. Cuando el usuario
+actualiza los elementos de la vista (los elementos de la interfaz de usuario en HTML), ¿se actualizan automáticamente
+los datos en el controlador? Justifica tu respuesta.
+-->
+
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body ng-controller="ex2">
+    <h1>EX2</h1>
+    <p>Nombre: <input type="text" ng-model="jugador.nombre"></p>
+    <p>Canastas Totales: <input type="text" ng-model="jugador.canastas"></p>
+    <p>Asistencias Totales: <input type="text" ng-model="jugador.asistencias"></p>
+    <p>{{ jugador.nombre }}</p>
+    <p>{{ jugador.canastas }}</p>
+    <p>{{ jugador.asistencias }}</p>
+</body>
+</html>
+<!--
+El controlador se ejecutará en este caso solo una vez, pero la directiva ng-model cambiará la variable $scope,
+por lo que en una posible ejecución futura (por ejemplo, un botón que ejecute una función), el controlador podrá
+acceder a estos datos introducidos.
+-->

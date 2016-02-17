@@ -1,0 +1,57 @@
+<!--
+http://www.w3schools.com/angular/tryit.asp?filename=try_ng_validate_email
+http://www.w3schools.com/angular/tryit.asp?filename=try_ng_validate_show
+http://www.w3schools.com/angular/tryit.asp?filename=try_ng_validate_classes_form
+
+Desarrolla un formulario para dar de alta un jugador, tal y como se especifica en el código de ejemplo.
+Para este ejercicio, no es preciso que realmente se comunique con el API REST de Spring para crear el jugador
+en la base de datos. De manera opcional, para subir nota puedes implementar la creación realista comunicándote
+con el API REST de Spring investigando el código de JHipster.
+En el enlace a Github, en las líneas 75 a 77 se encuentra la solución para deshabilitar CSRF:
+https://github.com/alfredorueda/jhipster_public_apis/blob/af4a9d2c74719d994d713f98cf88da72a7d60100/src/main/java/com/mycompany/myapp/config/SecurityConfiguration.java#L76
+
+Solución más completa y realista con la protección CSRF activa:
+https://github.com/alfredorueda/jhipster_public_apis/commit/6fc04bde047c280c3077b4c56ffd134c9a691e91
+https://github.com/alfredorueda/jhipster_public_apis/blob/master/src/main/webapp/ej15.html
+
+En este caso, es preciso que el ejercicio 15 utilice el mismo nombre de módulo que JHipster, para que se
+ejecute el código de AngularJS específico para temas de autentificación (y para ello, obviamente, es preciso
+incluir los scripts que implementan autentificación).
+
+Información sobre CSRF:
+https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet
+Es un tema de seguridad avanzado y no se va a exigir en el examen.
+
+-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <script src="js/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="ex15">
+    <h1>EX15</h1>
+    <input type="text" placeholder="Nombre" ng-model="jugador.nombre">
+    <input type="date" placeholder="Fecha Nacimiento" ng-model="jugador.fechaNacimiento">
+    <input type="number" placeholder="Canastas" ng-model="jugador.canastas">
+    <input type="number" placeholder="Asistencias" ng-model="jugador.asistencias">
+    <input type="number" placeholder="Rebotes" ng-model="jugador.rebotes">
+    <button ng-click="send()">Enviar</button>
+</div>
+</body>
+</html>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('ex15', function($scope, $http) {
+        $scope.send = function(){
+            $http.post("http://127.0.0.1:8080/jugadores", $scope.jugador)
+                    .then(function (response) {
+                        $scope.jugadores = response.data;
+                    });
+        }
+    });
+
+</script>

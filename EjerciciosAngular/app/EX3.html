@@ -1,0 +1,28 @@
+<!--
+http://www.w3schools.com/angular/tryit.asp?filename=try_ng_expressions_objects
+Utilizando la directiva ng-init, inicializa un objeto jugador de baloncesto con sus diversos atributos.
+Posteriormente, muestra sus atributos en diversos elementos HTML mediante la directiva {{}}. Explica en qué
+componentes de AngularJS se debe manipular el DOM: directivas, controladores, vistas o servicios.
+Justifica tu respuesta.
+-->
+
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body ng-init="jugador = { nombre: 'Nombre', canastas: '321', asistencias: '123' }">
+    <h1>EX3</h1>
+    <p>{{ jugador.nombre }}</p>
+    <p>{{ jugador.canastas }}</p>
+    <p>{{ jugador.asistencias }}</p>
+</body>
+</html>
+<!--
+En AngularJS, sólo se debe modificar el DOM  mediante el $scope, variable accesible mediante los controladores y
+la vista, y que es manipulada mediante las directivas
+-->

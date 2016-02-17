@@ -1,0 +1,58 @@
+<!--
+http://www.w3schools.com/angular/tryit.asp?filename=try_ng_tables_css
+Mejora la tabla del ejercicio anterior utilizando estilos CSS. Te puedes basar en el código de ejemplo
+proporcionado, y puedes proponer tus propios estilos.
+-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <script src="js/angular.min.js"></script>
+    <style>
+        table, th,td{
+            border: 1px solid blue;
+            border-collapse: collapse;
+            padding: 4px;
+        }
+        table tr:nth-child(odd){
+            background-color: gainsboro;
+        }
+        table tr:nth-child(even){
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="ex10">
+    <h1>EX10</h1>
+    <table>
+        <tr>
+            <td>Nombre</td>
+            <td>Canastas</td>
+            <td>Asistencias</td>
+            <td>Rebotes</td>
+            <td>Posicion</td>
+        </tr>
+        <tr ng-repeat="jugador in jugadores">
+            <td>{{jugador.nombre}}</td>
+            <td>{{jugador.canastas}}</td>
+            <td>{{jugador.asistencias}}</td>
+            <td>{{jugador.rebotes}}</td>
+            <td>{{jugador.posicion}}</td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('ex10', function($scope, $http) {
+        $http.get("http://127.0.0.1:8080/jugadores")
+                .then(function (response) {
+                    $scope.jugadores = response.data;
+                });
+    });
+</script>

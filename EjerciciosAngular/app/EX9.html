@@ -1,0 +1,46 @@
+<!--
+http://www.w3schools.com/angular/tryit.asp?filename=try_ng_tables_simple
+Extiende el ejercicio número 7 para obtener el listado de jugadores del API REST Spring
+En este ejercicio, debes mostrar la información de los jugadores en formato tabla, especificando una columna para
+cada atributo del jugador.
+-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <script src="js/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="ex9">
+    <h1>EX9</h1>
+    <table>
+        <tr>
+            <td>Nombre</td>
+            <td>Canastas</td>
+            <td>Asistencias</td>
+            <td>Rebotes</td>
+            <td>Posicion</td>
+        </tr>
+        <tr ng-repeat="jugador in jugadores">
+            <td>{{jugador.nombre}}</td>
+            <td>{{jugador.canastas}}</td>
+            <td>{{jugador.asistencias}}</td>
+            <td>{{jugador.rebotes}}</td>
+            <td>{{jugador.posicion}}</td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('ex9', function($scope, $http) {
+        $http.get("http://127.0.0.1:8080/jugadores")
+                .then(function (response) {
+                    $scope.jugadores = response.data;
+                });
+    });
+</script>

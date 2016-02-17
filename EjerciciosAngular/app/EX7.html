@@ -1,0 +1,40 @@
+<!--
+http://www.w3schools.com/angular/tryit.asp?filename=try_ng_customers_json
+Desarrolla una aplicación similar que obtenga un listado de jugadores de baloncesto de un API REST Spring.
+En primer lugar, debes programar el API REST Spring que devuelva el listado de jugadores de baloncesto, tal
+y como hemos hecho hasta ahora. Debes probar que el API REST funciona correctamente mediante una herramienta tipo:
+https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo
+Una vez que hayas comprobado que el API REST funciona correctamente, puedes consumir el listado de
+jugadores desde angular, tal y como enseña el código de ejemplo.
+-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <script src="js/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="ex7">
+    <h1>EX7</h1>
+    <div ng-repeat="jugador in jugadores">
+        <p>{{jugador.nombre}}</p>
+        <p>{{jugador.canastas}}</p>
+        <p>{{jugador.asistencias}}</p>
+        <p>{{jugador.rebotes}}</p>
+        <p>{{jugador.posicion}}</p>
+        <br>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('ex7', function($scope, $http) {
+        $http.get("http://127.0.0.1:8080/jugadores")
+                .then(function (response) {
+                    $scope.jugadores = response.data;
+                });
+    });
+</script>

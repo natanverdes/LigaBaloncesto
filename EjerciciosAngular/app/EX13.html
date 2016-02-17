@@ -1,0 +1,75 @@
+<!--
+http://www.w3schools.com/angular/tryit.asp?filename=try_ng_filters_input
+Extiende el ejercicio número 11, de modo que sea posible filtrar los jugadores por cualquiera de sus atributos,
+tal y como se enseña en la documentación oficial de AngularJS:
+https://docs.angularjs.org/api/ng/filter/filter
+Consultar el ejemplo al final de la página y hacer clic en “edit in punkle”
+-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <script src="js/angular.min.js"></script>
+    <style>
+        table, th,td{
+            border: 1px solid blue;
+            border-collapse: collapse;
+            padding: 4px;
+        }
+        .odd{
+            background-color: gainsboro;
+        }
+        .even{
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="ex13">
+    <h1>EX13</h1>
+
+    <p>Introduce una búsqueda:</p>
+    <p><input type="text" ng-model="busqueda.nombre"></p>
+
+
+
+    <table>
+        <tr>
+            <td>Nombre</td>
+            <td>Canastas</td>
+            <td>Asistencias</td>
+            <td>Rebotes</td>
+            <td>Posicion</td>
+        </tr>
+        <tr ng-repeat="jugador in jugadores | filter:busqueda">
+            <td ng-if="$odd" class="odd">{{jugador.nombre}}</td>
+            <td ng-if="$even" class="even">{{jugador.nombre}}</td>
+
+            <td ng-if="$odd" class="odd">{{jugador.canastas}}</td>
+            <td ng-if="$even" class="even">{{jugador.canastas}}</td>
+
+            <td ng-if="$odd" class="odd">{{jugador.asistencias}}</td>
+            <td ng-if="$even" class="even">{{jugador.asistencias}}</td>
+
+            <td ng-if="$odd" class="odd">{{jugador.rebotes}}</td>
+            <td ng-if="$even" class="even">{{jugador.rebotes}}</td>
+
+            <td ng-if="$odd" class="odd">{{jugador.posicion}}</td>
+            <td ng-if="$even" class="even">{{jugador.posicion}}</td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('ex13', function($scope, $http) {
+        $http.get("http://127.0.0.1:8080/jugadores")
+                .then(function (response) {
+                    $scope.jugadores = response.data;
+                });
+    });
+</script>

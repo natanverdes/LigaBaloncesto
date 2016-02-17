@@ -1,0 +1,39 @@
+<!--
+Realiza una aplicación similar, con la diferencia de que ahora el listado de jugadores se deberá cargar con la
+información de jugadores de un equipo determinado. Puedes utilizar un select HTML de AngularJS
+(https://docs.angularjs.org/api/ng/directive/select). La URL del API REST ha de ser la siguiente:
+/api/equipos/{id}/jugadores
+Importante: utilizar directamente 127.0.0.1 o similar, en lugar de localhost (es posible que os
+dé problemas en Windows).
+-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <script src="js/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="ex8">
+    <h1>EX8</h1>
+    <div ng-repeat="jugador in jugadores">
+        <p>{{jugador.nombre}}</p>
+        <p>{{jugador.canastas}}</p>
+        <p>{{jugador.asistencias}}</p>
+        <p>{{jugador.rebotes}}</p>
+        <p>{{jugador.posicion}}</p>
+        <br>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('ex8', function($scope, $http) {
+        $http.get("http://127.0.0.1:8080/equipos/2/jugadores")
+                .then(function (response) {
+                    $scope.jugadores = response.data;
+                });
+    });
+</script>

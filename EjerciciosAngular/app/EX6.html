@@ -1,0 +1,26 @@
+<!--
+http://www.w3schools.com/angular/tryit.asp?filename=try_ng_scope_sync
+Repaso sobre la sincronización automática que realiza angular entre la vista, el controlador y el modelo. Experimenta
+con el siguiente código de ejemplo, comprobando la sincronización que se efectúa con los atributos de un
+jugador de baloncesto.
+-->
+<!-- Con el mismo código que el EX2 puede apreciarse la sincronización automática del $scope -->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body ng-controller="ex2">
+<h1>EX2</h1>
+<p>Nombre: <input type="text" ng-model="jugador.nombre"></p>
+<p>Canastas Totales: <input type="text" ng-model="jugador.canastas"></p>
+<p>Asistencias Totales: <input type="text" ng-model="jugador.asistencias"></p>
+<p>{{ jugador.nombre }}</p>
+<p>{{ jugador.canastas }}</p>
+<p>{{ jugador.asistencias }}</p>
+</body>
+</html>
