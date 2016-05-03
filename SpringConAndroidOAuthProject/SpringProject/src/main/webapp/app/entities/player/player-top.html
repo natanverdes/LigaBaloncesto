@@ -1,0 +1,66 @@
+<div class="table-responsive">
+    <table class="jh-table table table-striped">
+        <thead>
+        <tr>
+            <th><span translate="global.field.id">ID</span></th>
+            <th><span translate="basketballOauth2Jhipster3App.player.name">Name</span></th>
+            <th><span translate="basketballOauth2Jhipster3App.player.baskets">Baskets</span></th>
+            <th><span translate="basketballOauth2Jhipster3App.player.rebotes">Rebotes</span></th>
+            <th><span translate="basketballOauth2Jhipster3App.player.asistencias">Asistencias</span></th>
+            <th><span translate="basketballOauth2Jhipster3App.player.posicionCampo">PosicionCampo</span></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="player in savedPlayers track by player.id">
+            <td><a ui-sref="player-detail({id:player.id})">{{player.id}}</a></td>
+            <td>{{player.name}}</td>
+            <td>{{player.baskets}}</td>
+            <td>{{player.rebotes}}</td>
+            <td>{{player.asistencias}}</td>
+            <td translate="{{'basketballOauth2Jhipster3App.PosicionesJugadores.' + player.posicionCampo}}">{{player.posicionCampo}}</td>
+            <td class="text-right">
+                <div class="btn-group flex-btn-group-container">
+                    <button type="submit"
+                            ui-sref="player-detail({id:player.id})"
+                            class="btn btn-info btn-sm">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                        <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                    </button>
+                    <button type="submit"
+                            ui-sref="player.edit({id:player.id})"
+                            class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                        <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                    </button>
+                    <button type="submit"
+                            ui-sref="player.delete({id:player.id})"
+                            class="btn btn-danger btn-sm">
+                        <span class="glyphicon glyphicon-remove-circle"></span>
+                        <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                    </button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <nav>
+        <ul class="pagination">
+            <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
+            <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
+            <li ng-show="page > 1" ng-click="loadPage(page - 2)"><a>{{page - 1}}</a></li>
+            <li ng-show="page > 0" ng-click="loadPage(page - 1)"><a>{{page}}</a></li>
+            <li class="active"><a>{{page + 1}}</a></li>
+            <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 2}}</a></li>
+            <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 3}}</a></li>
+            <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
+            <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
+        </ul>
+    </nav>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>
